@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <h1>Topics</h1>
+        <p>This is a some topics</p>
+    </header>
+    <main>
+        <h3>Available Topics</h3>
+        <br>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="topic:${topics}">
+                <td th:text="${topic.id}">Default</td>
+                <td th:text="${topic.name}">Default</td>
+                <td th:text="${topic.description}">Default</td>
+                <td><a href="#" th:href="@{/topics/delete/{id}(id=${topic.id})}">Delete</a></td>
+                <td><a href="#" th:href="@{/topics/update/{id}(id=${topic.id})}">Update</a></td>
+            </tr>
+        </table>
+
+        <form action="#" th:action="@{topics}" method="post" th:object="${topic}">
+            <label for="id">Id : </label>
+            <input id="id" type="number"  th:field="*{id}" value="1" required>
+            <label for="name">Name : </label>
+            <input id="name" type="text" th:field="*{name}" value="Name Default" required>
+            <label for="description">Description : </label>
+            <input id="description" type="text" th:field="*{description}"  value="Description Default" required>
+            <input id="submit" type="submit" value="Add Topic">
+        </form>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Topic</title>
+</head>
+<body>
+<header>
+  <h1>Topics</h1>
+  <p>Update Topic</p>
+</header>
+<main>
+  <h3>Available Topics</h3>
+  <br>
+  <form action="#" th:action="@{/topics}" method="post" th:object="${topic}">
+    <label for="id">Id : </label>
+    <input id="id" type="number"  th:field="*{id}" value="1" required>
+    <label for="name">Name : </label>
+    <input id="name" type="text" th:field="*{name}" value="Name Default" required>
+    <label for="description">Description : </label>
+    <input id="description" type="text" th:field="*{description}"  value="Description Default" required>
+    <input id="submit" type="submit" value="Update Topic">
+  </form>
+</main>
+
+</body>
+</html>
